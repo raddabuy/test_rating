@@ -1,0 +1,136 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel Swagger",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/results": {
+            "post": {
+                "tags": [
+                    "Results"
+                ],
+                "summary": "Create result",
+                "operationId": "bebe2caa1baf42d0a4c7ab87800370cb",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    {
+                                        "properties": {
+                                            "email": {
+                                                "type": "string",
+                                                "example": "anna@example.com"
+                                            },
+                                            "milliseconds": {
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "member_id": {
+                                                    "type": "integer"
+                                                },
+                                                "milliseconds": {
+                                                    "type": "integer"
+                                                },
+                                                "id": {
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/rating": {
+            "get": {
+                "tags": [
+                    "Results"
+                ],
+                "summary": "Show rating",
+                "operationId": "5d62775c98a7d90cf30768e83a39e924",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "properties": {
+                                                "top": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "email": {
+                                                                "type": "string",
+                                                                "example": "an**@example.com"
+                                                            },
+                                                            "place": {
+                                                                "type": "integer"
+                                                            },
+                                                            "milliseconds": {
+                                                                "type": "integer"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "self": {
+                                                    "properties": {
+                                                        "email": {
+                                                            "type": "string",
+                                                            "example": "anna@example.com"
+                                                        },
+                                                        "place": {
+                                                            "type": "integer"
+                                                        },
+                                                        "milliseconds": {
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
